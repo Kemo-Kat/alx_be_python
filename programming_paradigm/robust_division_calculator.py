@@ -3,12 +3,11 @@ def safe_divide(numerator, denominator):
     Safely divides two numbers with comprehensive error handling.
     
     Args:
-        numerator: The numerator as a string or numeric type
-        denominator: The denominator as a string or numeric type
+        numerator: The numerator as a string
+        denominator: The denominator as a string
         
     Returns:
-        float: The result of division if successful
-        str: Error message if division fails
+        str: The result of division or appropriate error message
     """
     try:
         # Attempt to convert inputs to floats
@@ -20,8 +19,6 @@ def safe_divide(numerator, denominator):
     try:
         # Attempt division
         result = num / den
-        return result
+        return str(result)
     except ZeroDivisionError:
         return "Error: Cannot divide by zero."
-    except Exception as e:
-        return f"Error: An unexpected error occurred - {str(e)}"
