@@ -7,7 +7,7 @@ def safe_divide(numerator, denominator):
         denominator: The denominator as a string
         
     Returns:
-        str: The result of division or appropriate error message
+        str: The result message or appropriate error message
     """
     try:
         # Attempt to convert inputs to floats
@@ -19,6 +19,7 @@ def safe_divide(numerator, denominator):
     try:
         # Attempt division
         result = num / den
-        return str(result)
+        return f"The result of the division is {result}"
     except ZeroDivisionError:
         return "Error: Cannot divide by zero."
+
