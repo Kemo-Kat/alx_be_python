@@ -16,7 +16,7 @@ class Book:
         self.title = title
         self.author = author
         self.year = year
-        print(f"Book '{self.title}' created successfully!")
+        # Removed the print statement to match expected output
     
     def __del__(self):
         """
