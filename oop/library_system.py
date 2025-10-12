@@ -1,0 +1,108 @@
+
+
+class Book:
+    """
+    Base class representing a generic book.
+    """
+    
+    def __init__(self, title, author):
+        """
+        Initialize a Book with title and author.
+        
+        Args:
+            title (str): The title of the book
+            author (str): The author of the book
+        """
+        self.title = title
+        self.author = author
+    
+    def get_details(self):
+        """
+        Return string representation of book details.
+        
+        Returns:
+            str: Book details in format "Book: {title} by {author}"
+        """
+        return f"Book: {self.title} by {self.author}"
+
+
+class EBook(Book):
+    """
+    Derived class representing an electronic book, inherits from Book.
+    """
+    
+    def __init__(self, title, author, file_size):
+        """
+        Initialize an EBook with title, author, and file size.
+        
+        Args:
+            title (str): The title of the book
+            author (str): The author of the book
+            file_size (int): The file size in KB
+        """
+        super().__init__(title, author)
+        self.file_size = file_size
+    
+    def get_details(self):
+        """
+        Return string representation of ebook details.
+        
+        Returns:
+            str: EBook details with file size
+        """
+        return f"EBook: {self.title} by {self.author}, File Size: {self.file_size}KB"
+
+
+class PrintBook(Book):
+    """
+    Derived class representing a physical book, inherits from Book.
+    """
+    
+    def __init__(self, title, author, page_count):
+        """
+        Initialize a PrintBook with title, author, and page count.
+        
+        Args:
+            title (str): The title of the book
+            author (str): The author of the book
+            page_count (int): The number of pages
+        """
+        super().__init__(title, author)
+        self.page_count = page_count
+    
+    def get_details(self):
+        """
+        Return string representation of print book details.
+        
+        Returns:
+            str: PrintBook details with page count
+        """
+        return f"PrintBook: {self.title} by {self.author}, Page Count: {self.page_count}"
+
+
+class Library:
+    """
+    Class demonstrating composition by managing a collection of books.
+    """
+    
+    def __init__(self):
+        """
+        Initialize a Library with an empty list of books.
+        """
+        self.books = []
+    
+    def add_book(self, book):
+        """
+        Add a Book, EBook, or PrintBook instance to the library.
+        
+        Args:
+            book: Instance of Book, EBook, or PrintBook
+        """
+        self.books.append(book)
+    
+    def list_books(self):
+        """
+        Print details of each book in the library.
+        """
+        for book in self.books:
+            print(book.get_details())
