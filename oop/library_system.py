@@ -1,5 +1,3 @@
-
-
 class Book:
     """
     Base class representing a generic book.
@@ -16,9 +14,9 @@ class Book:
         self.title = title
         self.author = author
     
-    def get_details(self):
+    def __str__(self):
         """
-        Return string representation of book details.
+        String representation of book details.
         
         Returns:
             str: Book details in format "Book: {title} by {author}"
@@ -43,9 +41,9 @@ class EBook(Book):
         super().__init__(title, author)
         self.file_size = file_size
     
-    def get_details(self):
+    def __str__(self):
         """
-        Return string representation of ebook details.
+        String representation of ebook details.
         
         Returns:
             str: EBook details with file size
@@ -70,9 +68,9 @@ class PrintBook(Book):
         super().__init__(title, author)
         self.page_count = page_count
     
-    def get_details(self):
+    def __str__(self):
         """
-        Return string representation of print book details.
+        String representation of print book details.
         
         Returns:
             str: PrintBook details with page count
@@ -105,4 +103,4 @@ class Library:
         Print details of each book in the library.
         """
         for book in self.books:
-            print(book.get_details())
+            print(book)  # This will automatically call __str__
